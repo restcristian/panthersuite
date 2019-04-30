@@ -1,0 +1,10 @@
+{
+    "upcoming_events": [
+        {
+            "name": "Ingrid Michealson",
+            "venue": "Central Stadium",
+            "location":"Minnesota",
+            "image_url":"./artists/IngridMichealson@2x.png"
+        }
+    ]
+}
