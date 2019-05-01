@@ -1,6 +1,7 @@
 {
     "upcoming_events": [
         {
+            "_id":"001",
             "name": "Ingrid Michealson",
             "venue": "Central Stadium",
             "location":"Minnesota",
@@ -8,6 +9,7 @@
             "event_date":"23 May 2018"
         },
         {
+            "_id":"002",
             "name": "Andrea Bocelli",
             "venue": "SAP Center",
             "location":"San José, CA.",
@@ -15,13 +17,15 @@
             "event_date":"14 June 2018"
         },
         {
+            "_id":"003",
             "name": "ColdPlay",
             "venue": "SAP Center",
             "location":"San José, CA.",
-            "image_url":"./artists/AndreaBocelli@2x.png",
+            "image_url":"./artists/coldplay@2x.png",
             "event_date":"8 Aug 2018"
         },
         {
+            "_id":"004",
             "name": "Maluma",
             "venue": "Hard Rock Cage",
             "location":"Montreal, Canada",
@@ -29,6 +33,7 @@
             "event_date":"3 Sept 2018"
         },
         {
+            "_id":"005",
             "name": "Justin Timberlake",
             "venue": "SAP Center",
             "location":"San José, CA.",
@@ -36,10 +41,11 @@
             "event_date":"14 Sept 2018"
         },
         {
+            "_id":"006",
             "name": "Cardi B",
             "venue": "Hard Rock Cafe",
             "location":"Punta Cana, Dom. Rep.",
-            "image_url":"./artists/CardoB@2x.png",
+            "image_url":"./artists/CardiB@2x.png",
             "event_date":"23 Nov 2018"
         }
     ]

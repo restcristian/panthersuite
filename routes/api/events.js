@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 // Upcoming events
 router.get('/upcoming-events', (req, res) => {
     res.send({
-        events:data["upcoming_events"]
+        upcoming_events:data["upcoming_events"]
     });
 });
 
