@@ -1,4 +1,11 @@
 {
+    "spotlight_event":{
+        "_id":"0007",
+        "performers_name":"Bruno Mars & The Killers",
+        "event_name":"2018 Bottlerock Festival",
+        "description":"BottleRock 2018 will take place on Memorial Day Weekend: May 25th-27th and get others great artist.",
+        "image_url":"./artists/brunomars-spotlight@2x.png"
+    },
     "upcoming_events": [
         {
             "_id":"001",

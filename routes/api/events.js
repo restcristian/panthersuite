@@ -11,5 +11,10 @@ router.get('/upcoming-events', (req, res) => {
         upcoming_events:data["upcoming_events"]
     });
 });
-
+// Spotlight Event
+router.get('/spotlight-event', (req, res) => {
+    res.send({
+        spotlight_event:data["spotlight_event"]
+    });
+});
 module.exports = router;
