@@ -1,0 +1,91 @@
+body{
+    margin:0;
+    padding-top:106px;
+}
+*, *:before, *:after{
+    box-sizing: border-box;
+}
+/* Fonts */
+@font-face {
+    font-family: 'GothamBook';
+    src: url('./assets/fonts/Gotham-Book.woff2') format('woff2'),
+        url('./assets/fonts/Gotham-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GothamBookItalic';
+    src: url('./assets/fonts/Gotham-BookItalic.woff2') format('woff2'),
+        url('./assets/fonts/Gotham-BookItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'GothamMedium';
+    src: url('./assets/fonts/Gotham-Medium.woff2') format('woff2'),
+        url('./assets/fonts/Gotham-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GothamBoldItalic';
+    src: url('./assets/fonts/Gotham-BoldItalic.woff2') format('woff2'),
+        url('./assets/fonts/Gotham-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GothamMediumItalic';
+    src: url('./assets/fonts/Gotham-MediumItalic.woff2') format('woff2'),
+        url('./assets/fonts/Gotham-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GothamBlack';
+    src: url('./assets/fonts/Gotham-Black.woff2') format('woff2'),
+        url('./assets/fonts/Gotham-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GothamBold';
+    src: url('./assets/fonts/Gotham-Bold.woff2') format('woff2'),
+        url('./assets/fonts/Gotham-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GothamLight';
+    src: url('./assets/fonts/Gotham-Light.woff2') format('woff2'),
+        url('./assets/fonts/Gotham-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: 'GothamLightItalic';
+    src: url('./assets/fonts/Gotham-LightItalic.woff2') format('woff2'),
+        url('./assets/fonts/Gotham-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GothamBlackItalic';
+    src: url('./assets/fonts/Gotham-BlackItalic.woff2') format('woff2'),
+        url('./assets/fonts/Gotham-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+}
+

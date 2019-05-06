@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="413px" height="521px" viewBox="0 0 413 521" enable-background="new 0 0 413 521" xml:space="preserve">
+<filter  id="a" filterUnits="objectBoundingBox" y="-1.1%" x="-1.8%" height="102.9%" width="103.7%">
+	<feMorphology  result="shadowSpreadOuter1" radius=".5" operator="dilate" in="SourceAlpha"></feMorphology>
+	<feOffset  dy="2" result="shadowOffsetOuter1" in="shadowSpreadOuter1"></feOffset>
+	<feMorphology  result="shadowInner" radius="1" operator="erode" in="SourceAlpha"></feMorphology>
+	<feOffset  dy="2" result="shadowInner" in="shadowInner"></feOffset>
+	<feComposite  in2="shadowInner" result="shadowOffsetOuter1" operator="out" in="shadowOffsetOuter1"></feComposite>
+	<feGaussianBlur  stdDeviation="2" result="shadowBlurOuter1" in="shadowOffsetOuter1"></feGaussianBlur>
+	<feColorMatrix  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0" result="shadowMatrixOuter1" in="shadowBlurOuter1">
+		</feColorMatrix>
+	<feMerge>
+		<feMergeNode  in="shadowMatrixOuter1"></feMergeNode>
+		<feMergeNode  in="SourceGraphic"></feMergeNode>
+	</feMerge>
+</filter>
+<g transform="translate(3 1)" filter="url(#a)">
+	<g id="b_1_">
+		<g opacity="0.1">
+			<path fill="#ED1A37" d="M286.025,153.334c0,0,5.398,13.383,29.7,13.383C315.726,166.717,321.129,137.719,286.025,153.334z
+				 M378.756,0.001c16.623,0,30.221,13.596,30.221,30.219v347.513c0,16.717-5.046,32.242-13.669,45.184
+				c-14.625,21.936-39.575,36.408-67.927,36.408c-45.061,0-81.592-36.529-81.592-81.592c0-31.863,18.325-59.344,44.969-72.75
+				c0.011-0.775,0.055-1.557,0.201-2.348l7.377-38.814c1.219-6.444,6.851-11.11,13.409-11.11h29.41
+				c17.401,0,32.197-11.29,37.601-26.947V180.79c-9.028-5.412-25.554-13.735-31.118-15.652c-0.085-0.027-0.197-0.072-0.273-0.098
+				c-3.985-0.662-7.474-3.054-9.524-6.535c-0.022-0.04-2.731-4.622-6.853-10.66c-9.405-13.829-25.581-21.601-42.285-20.305
+				l-35.508,2.762c0,0-14.165,0.232-30.413-4.224c-0.223-0.313-4.751-5.855-7.455-7.169l-25.067-12.197
+				c-2.213,2.28-5.663,8.371-7.044,17.337c-1.69,10.933,0.487,21.016,5.779,27.56c3.272,4.049-4.859,18.284-6.477,22.432
+				c-10.401,26.62-15.304,55.605-15.304,83.893v174.193c0,16.715-5.047,32.244-13.67,45.182
+				c-14.624,21.938-39.575,36.41-67.922,36.41c-45.065,0-81.597-36.529-81.597-81.592c0-37.732,25.652-69.395,60.441-78.723
+				c4.828-1.301,9.766-2.152,14.75-2.543c2.119-0.17,4.242-0.326,6.406-0.326c0.152,0,0.295,0.021,0.447,0.021
+				c15.675-1.014,36.554-4.643,50.929-15.799V87.636c0-0.26,0.062-0.501,0.076-0.76c0.375-8.94,2.932-17.713,9.637-24.047
+				c8.121-7.665,19.081-8.072,29.344-10.709l43.089-11.075c20.338-5.234,40.68-10.463,61.017-15.693
+				c19.578-5.037,39.156-10.07,58.734-15.102c12.068-3.102,24.141-6.209,36.21-9.31L378.756,0.001L378.756,0.001z"/>
+		</g>
+	</g>
+</g>
+</svg>
