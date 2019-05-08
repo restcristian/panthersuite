@@ -28,7 +28,7 @@ function withSiteDataLoad(WrappedComponent) {
         render() {
             return (
                 <React.Fragment>
-                     {/* <LoadingScreen startLoading = {this.arePromisesDone()}/> */}
+                     <LoadingScreen startLoading = {this.arePromisesDone()}/>
                      <WrappedComponent dataProgress={this.state.dataProgress}  />
                 </React.Fragment>
            );
