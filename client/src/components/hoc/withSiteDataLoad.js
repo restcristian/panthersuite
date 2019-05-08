@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {compose} from 'redux';
-import {allProgress} from '../../utils/helpers';
+import { compose } from 'redux';
+import { allProgress } from '../../utils/helpers';
 
-import {getEvents} from '../../store/actions/eventsActions';
-import {getSpotlight} from '../../store/actions/spotlightActions';
+import {
+    getEvents,
+    getConcertsEvents
+} from '../../store/actions/eventsActions';
+import { getSpotlight } from '../../store/actions/spotlightActions';
 
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
 
@@ -17,9 +20,10 @@ function withSiteDataLoad(WrappedComponent) {
             allProgress(
                 [
                     this.props.getEvents(),
-                    this.props.getSpotlight()
+                    this.props.getSpotlight(),
+                    this.props.getConcertsEvents()
                 ],
-                progress=> this.setState({dataProgress:progress})
+                progress => this.setState({ dataProgress: progress })
             );
         }
         arePromisesDone = () => {
@@ -28,15 +32,20 @@ function withSiteDataLoad(WrappedComponent) {
         render() {
             return (
                 <React.Fragment>
-                     <LoadingScreen startLoading = {this.arePromisesDone()}/>
-                     <WrappedComponent dataProgress={this.state.dataProgress}  />
+                    <LoadingScreen startLoading = {this.arePromisesDone()}/>
+                    <WrappedComponent dataProgress={this.state.dataProgress} />
                 </React.Fragment>
-           );
+            );
         }
     }
 }
 
-const composedWithSiteLoad = 
-compose(connect(null, {getEvents, getSpotlight}),withSiteDataLoad);
+const composedWithSiteLoad =
+    compose(connect(null,
+        {
+            getEvents,
+            getSpotlight,
+            getConcertsEvents
+        }), withSiteDataLoad);
 
 export default composedWithSiteLoad;

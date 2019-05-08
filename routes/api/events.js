@@ -17,4 +17,10 @@ router.get('/spotlight-event', (req, res) => {
         spotlight_event:data["spotlight_event"]
     });
 });
+//Concert Page Upcoming events
+router.get('/concerts-upcoming-events', (req, res) => {
+    res.send({
+        concerts_upcoming_events:data["concerts_upcoming_events"]
+    });
+});
 module.exports = router;

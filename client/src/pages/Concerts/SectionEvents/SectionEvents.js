@@ -2,15 +2,20 @@ import React from 'react';
 import {
     Section
 } from './styles';
-
+import { connect } from 'react-redux';
 import FilterableArtistList from '../../../components/FilterableArtistList/FilterableArtistList';
 
 const SectionEvents = props => {
-    return(
+    return (
         <Section>
-            <FilterableArtistList  />
+            <FilterableArtistList events = {props.events} />
         </Section>
     );
 };
 
-export default SectionEvents;
+const mapStateToProps  = state =>  {
+    return{
+        events:state.events
+    };
+};
+export default connect(mapStateToProps,null)(SectionEvents);

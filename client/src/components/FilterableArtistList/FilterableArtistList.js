@@ -9,7 +9,7 @@ import {
     TabButton
 } from './styles';
 
-const FilterableArtistList = props => {
+const FilterableArtistList = ({events}) => {
     const filters = {
         all:{
             text:'All',
@@ -65,7 +65,7 @@ const FilterableArtistList = props => {
                     {renderTabItems()}
                 </ul>
             </FilterBox>
-            {/* <ArtistListWithPic /> */}
+            <ArtistListWithPic items = {events} />
         </Container>
     );
 };
