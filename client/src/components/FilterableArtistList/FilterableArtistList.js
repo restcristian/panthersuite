@@ -5,31 +5,64 @@ import { themeProps } from '../shared/styles';
 
 import {
     FilterBox,
-    Container
+    Container,
+    TabButton
 } from './styles';
 
 const FilterableArtistList = props => {
+    const filters = {
+        all:{
+            text:'All',
+            isActive:true,
+        },
+        month:{
+            text:'Month',
+            isActive:false
+        },
+        genre:{
+            text:'Genre',
+            isActive:false
+        }
+    };
+    const [filterTabs, setFilterTabs] = useState(filters);
+
+    const renderTabItems = () => {
+        const keys = Object.keys(filterTabs);
+        const listItems = keys.map((key) => {
+            
+            return (
+                <li 
+                    key = {filterTabs[key].text}
+                    className = {filterTabs[key].isActive ? 'active' : ''}>
+                    <TabButton 
+                        onClick = {()=> onTabClick(key)}>
+                        <span>{filterTabs[key].text}</span>
+                    </TabButton>
+                </li>
+            );
+        });
+
+        return listItems;
+    }
+
+    const onTabClick = key => {
+        
+        setFilterTabs(prevState => {
+            return {
+                    ...prevState, 
+                    [key]:{
+                        ...prevState[key],
+                        isActive:!prevState[key].isActive
+                    }
+                }
+        });
+    };
     return (
         <Container>
             <FilterBox>
                 <ul>
                     <li>Search by:</li>
-                    <li>
-                        <SlideButton slideColor={themeProps.colors.orange}>
-                            All
-                        </SlideButton>
-                    </li>
-
-                    <li>
-                        <SlideButton slideColor={themeProps.colors.orange}>
-                            Month
-                        </SlideButton>
-                    </li>
-                    <li>
-                        <SlideButton slideColor={themeProps.colors.orange}>
-                            Genre
-                        </SlideButton>
-                    </li>
+                    {renderTabItems()}
                 </ul>
             </FilterBox>
             {/* <ArtistListWithPic /> */}

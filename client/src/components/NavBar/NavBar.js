@@ -58,7 +58,7 @@ const NavBar = (props) => {
                                     <Link to="/">About us</Link>
                                 </li>
                                 <li>
-                                    <Link href="/">Contact</Link>
+                                    <Link to="/">Contact</Link>
                                 </li>
                             </LinksList>
                             {toggleMenuBtn}

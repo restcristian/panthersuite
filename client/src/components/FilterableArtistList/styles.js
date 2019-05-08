@@ -1,5 +1,32 @@
 import styled from 'styled-components';
-import {themeProps} from '../shared/styles';
+import {themeProps, ButtonBase} from '../shared/styles';
+
+export const TabButton = styled(ButtonBase)`
+    font-family:'GothamMedium';
+    font-size:16px;
+    letter-spacing:1px;
+    color:${props => props.color};
+    position:relative;
+    padding: 3px 24px;
+    outline:none;
+    &:before{
+        content:'';
+        position:absolute;
+        top:0;
+        left:0;
+        width:0;
+        height:100%;
+        background-color:${props => props.backgroundColor};
+        transition: width .4s ease-in-out;
+    }
+    >span{
+        position:relative;
+    }
+`;
+TabButton.defaultProps = {
+    color:themeProps.colors.gray1,
+    backgroundColor:themeProps.colors.orange
+};
 
 export const FilterBox = styled.div`
     max-width:749px;
@@ -9,7 +36,6 @@ export const FilterBox = styled.div`
     padding:30px 80px;
     display:flex;
     
-
     >ul{
         margin:0;
         padding:0;
@@ -23,11 +49,15 @@ export const FilterBox = styled.div`
         font-size:16px;
         letter-spacing:1;
 
-        li > button {
-            text-transform:none;
-            letter-spacing:1px;
-            font-size:16px;
-            color:${props => props.color};
+        li.active ${TabButton}{
+            &:before{
+                width:35px;
+            }
+        }
+        li ${TabButton}:hover{
+            &:before{
+                width:100%;
+            }
         }
     }
 `;
@@ -35,5 +65,7 @@ FilterBox.defaultProps = {
     backgroundColor:themeProps.colors.lightBlue2,
     color:themeProps.colors.gray1
 };
+
+
 
 export const Container = styled.div``;
