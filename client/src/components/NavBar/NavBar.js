@@ -16,6 +16,7 @@ import Logo from '../../assets/imgs/logo-white.svg';
 import { toggleSearch } from '../../store/actions/navBarActions';
 import SearchModal from '../SearchModal/SearchModal';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 
 const NavBar = (props) => {
 
@@ -44,18 +45,20 @@ const NavBar = (props) => {
                 <Row>
                     <Wrapper>
                         <LogoContainer>
-                            <img src={Logo} alt="Logo" />
+                            <Link to = "/">
+                                <img src={Logo} alt="Logo" />
+                            </Link>
                         </LogoContainer>
                         <RightPanel>
                             <LinksList className={LinkListsClasses.join(' ')}>
                                 <li>
-                                    <a href="/">Concerts</a>
+                                    <Link to = "/concerts">Concerts</Link>
                                 </li>
                                 <li>
-                                    <a href="/">About us</a>
+                                    <Link to="/">About us</Link>
                                 </li>
                                 <li>
-                                    <a href="/">Contact</a>
+                                    <Link href="/">Contact</Link>
                                 </li>
                             </LinksList>
                             {toggleMenuBtn}
