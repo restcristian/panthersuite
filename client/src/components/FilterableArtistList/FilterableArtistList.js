@@ -1,30 +1,34 @@
 import React, { useState } from 'react';
 import ArtistListWithPic from '../ArtistListWithPic/ArtistListWithPic';
 import SlideButton from '../Buttons/SlideButton/SlideButton';
+import SearchButton from '../../components/SearchButton/SearchButton';
+
 import { themeProps } from '../shared/styles';
 
 import {
     FilterBox,
     Container,
-    TabButton
+    TabButton,
+    SearchForm
 } from './styles';
 
 const FilterableArtistList = ({events}) => {
     const filters = {
-        all:{
-            text:'All',
+        artist:{
+            text:'Artist',
             isActive:true,
         },
-        month:{
-            text:'Month',
+        concert:{
+            text:'Concert',
             isActive:false
         },
-        genre:{
-            text:'Genre',
+        place:{
+            text:'Place',
             isActive:false
-        }
+        },
     };
     const [filterTabs, setFilterTabs] = useState(filters);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     const renderTabItems = () => {
         const keys = Object.keys(filterTabs);
@@ -57,13 +61,33 @@ const FilterableArtistList = ({events}) => {
                 }
         });
     };
+
+    const onSeachClick = () =>  {
+        setIsSearchOpen( prevState => !prevState);
+    };
+    const renderSearchForm = () => {
+        if(isSearchOpen){
+            return (
+                <SearchForm>
+                    <input type="text" placeholder = "artist, concert, place" />
+                </SearchForm>
+            );
+        }
+        return null;
+    }
     return (
         <Container>
             <FilterBox>
+                <span>Search by:</span>
                 <ul>
-                    <li>Search by:</li>
                     {renderTabItems()}
                 </ul>
+                <div>
+                    <SearchButton
+                     color = {themeProps.colors.black}
+                     onClick = {onSeachClick} />
+                </div>
+               {renderSearchForm()}
             </FilterBox>
             <ArtistListWithPic items = {events} />
         </Container>

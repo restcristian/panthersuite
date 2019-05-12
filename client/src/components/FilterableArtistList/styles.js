@@ -28,6 +28,37 @@ TabButton.defaultProps = {
     backgroundColor:themeProps.colors.orange
 };
 
+export const SearchForm = styled.form`
+    position:absolute;
+    top:50%;
+    right: 124px;
+    width: calc(100% - 300px);
+    height:40px;
+    transform:translateY(-50%);
+    background-color:red;
+
+    >input{
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        -webkit-appearance:none;
+        border:none;
+        padding:0 17px;
+        font-family:'GothamBook';
+        line-height:1.69;
+        font-size:16px;
+        color:${props => props.color};
+        &::placeholder{
+            color:${props => props.color};
+        }
+    }
+`;
+SearchForm.defaultProps = {
+    color:themeProps.colors.lightBlue
+};
+
 export const FilterBox = styled.div`
     max-width:749px;
     width:100%;
@@ -35,7 +66,17 @@ export const FilterBox = styled.div`
     background-color: ${props => props.backgroundColor};
     padding:30px 80px;
     display:flex;
-    
+    align-items:center;
+    position:relative;
+
+    >span{
+        font-family:'GothamBook';
+        font-size:16px;
+        letter-spacing:1;
+        color:${props => props.color};
+        padding-right:30px;
+        display:inline-block;
+    }
     >ul{
         margin:0;
         padding:0;
@@ -48,7 +89,7 @@ export const FilterBox = styled.div`
         color:${props => props.color};
         font-size:16px;
         letter-spacing:1;
-
+        position:relative;
         li.active ${TabButton}{
             &:before{
                 width:35px;
@@ -58,6 +99,32 @@ export const FilterBox = styled.div`
             &:before{
                 width:100%;
             }
+        }
+    }
+    @media(max-width:645px){
+        padding:21px 15px;
+        justify-content:space-between;
+        
+        >span{
+            font-size: 13px;
+            padding:0;
+        }
+        >ul{
+            max-width:200px;
+
+            li ${TabButton}{
+                font-size:12px;
+                padding: 3px 6px;
+            }
+            li.active ${TabButton}{
+                &:before{
+                    width:20px;
+                }
+            }
+        }
+        ${SearchForm}{
+            right:58px;
+            width:calc(100% - 153px);
         }
     }
 `;
