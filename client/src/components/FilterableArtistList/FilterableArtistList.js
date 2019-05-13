@@ -1,6 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { TweenMax } from 'gsap';
 import { Transition } from 'react-transition-group';
+import {connect} from 'react-redux';
+
+import {getFilteredConcersEvents} from '../../store/actions/eventsActions';
+
 import ArtistListWithPic from '../ArtistListWithPic/ArtistListWithPic';
 import SearchButton from '../../components/SearchButton/SearchButton';
 
@@ -13,23 +17,24 @@ import {
     SearchForm
 } from './styles';
 
-const FilterableArtistList = ({ events }) => {
+const FilterableArtistList = ({ events, getFilteredConcersEvents }) => {
     const filters = {
         artist: {
             text: 'Artist',
             isActive: true,
         },
-        concert: {
-            text: 'Concert',
+        venue: {
+            text: 'Venue',
             isActive: false
         },
-        place: {
-            text: 'Place',
+        location: {
+            text: 'Location',
             isActive: false
         },
     };
     const [filterTabs, setFilterTabs] = useState(filters);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [searchText, setSearchText] = useState('');
 
     const searchFormRef = useRef(null);
 
@@ -68,23 +73,38 @@ const FilterableArtistList = ({ events }) => {
     const onSeachClick = () => {
         setIsSearchOpen(prevState => !prevState);
     };
+
+    const onSearchChange = e => {
+        setSearchText(e.target.value);
+    };
+
+    const onSearchSubmit = e => {
+        e.preventDefault();
+        getFilteredConcersEvents(searchText,filterTabs);
+
+    };
+
     const renderSearchForm = () => {
 
         return (
             <Transition
-                timeout = {1000}
+                timeout={1000}
                 unmountOnExit
                 mountOnEnter
-                in =  {isSearchOpen}
-                addEndListener = {(node, done)=> {
+                in={isSearchOpen}
+                addEndListener={(node, done) => {
                     TweenMax.to(node, 0.5, {
-                        css:{width:isSearchOpen ? "100%" : 0 },
-                        onComplete:done
+                        css: { width: isSearchOpen ? "100%" : 0 },
+                        onComplete: done
                     });
                 }}
             >
-                <SearchForm ref={searchFormRef}>
-                    <input type="text" placeholder="artist, concert, place" />
+                <SearchForm ref={searchFormRef} onSubmit = {onSearchSubmit}>
+                    <input
+                        type="text"
+                        placeholder="artist, concert, place"
+                        onChange={onSearchChange}
+                        val={searchText} />
                 </SearchForm>
             </Transition>
 
@@ -110,4 +130,4 @@ const FilterableArtistList = ({ events }) => {
     );
 };
 
-export default FilterableArtistList;
+export default connect(null, {getFilteredConcersEvents})(FilterableArtistList);

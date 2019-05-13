@@ -34,3 +34,24 @@ export const getConcertsEvents = () => {
         }
     }
 };
+
+export const getFilteredConcersEvents = (searchText,filters) => {
+    return async dispatch => {
+        try{
+            const params = {
+                searchText, 
+                filter:{
+                    ...filters
+                }
+            };
+            const events = await httpClient.post('/concerts-upcoming-events', params);
+            const data = await events.data.concerts_upcoming_events;
+
+            console.log(data);
+
+        }
+        catch(e){
+            console.log(e);
+        }
+    }
+};
