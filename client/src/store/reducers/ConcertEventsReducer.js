@@ -1,4 +1,4 @@
-import { GET_CONCERTS_EVENTS } from '../actions/types';
+import { GET_CONCERTS_EVENTS, FILTER_CONCERTS_EVENTS } from '../actions/types';
 
 const INITIAL_STATE = [];
 
@@ -9,6 +9,10 @@ export default (state = INITIAL_STATE, action) => {
                 ...state,
                 ...action.payload
             ];
+        case FILTER_CONCERTS_EVENTS:
+            return [
+                ...action.payload
+            ]
         default:
             return state;
     };

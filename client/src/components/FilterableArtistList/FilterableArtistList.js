@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { TweenMax } from 'gsap';
 import { Transition } from 'react-transition-group';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
-import {getFilteredConcersEvents} from '../../store/actions/eventsActions';
+import { getFilteredConcertsEvents } from '../../store/actions/eventsActions';
 
 import ArtistListWithPic from '../ArtistListWithPic/ArtistListWithPic';
 import SearchButton from '../../components/SearchButton/SearchButton';
@@ -17,7 +17,7 @@ import {
     SearchForm
 } from './styles';
 
-const FilterableArtistList = ({ events, getFilteredConcersEvents }) => {
+const FilterableArtistList = ({ events, getFilteredConcertsEvents }) => {
     const filters = {
         artist: {
             text: 'Artist',
@@ -37,6 +37,8 @@ const FilterableArtistList = ({ events, getFilteredConcersEvents }) => {
     const [searchText, setSearchText] = useState('');
 
     const searchFormRef = useRef(null);
+
+    
 
     const renderTabItems = () => {
         const keys = Object.keys(filterTabs);
@@ -80,7 +82,7 @@ const FilterableArtistList = ({ events, getFilteredConcersEvents }) => {
 
     const onSearchSubmit = e => {
         e.preventDefault();
-        getFilteredConcersEvents(searchText,filterTabs);
+        getFilteredConcertsEvents(searchText, filterTabs);
 
     };
 
@@ -99,7 +101,7 @@ const FilterableArtistList = ({ events, getFilteredConcersEvents }) => {
                     });
                 }}
             >
-                <SearchForm ref={searchFormRef} onSubmit = {onSearchSubmit}>
+                <SearchForm ref={searchFormRef} onSubmit={onSearchSubmit}>
                     <input
                         type="text"
                         placeholder="artist, concert, place"
@@ -130,4 +132,4 @@ const FilterableArtistList = ({ events, getFilteredConcersEvents }) => {
     );
 };
 
-export default connect(null, {getFilteredConcersEvents})(FilterableArtistList);
+export default connect(null, { getFilteredConcertsEvents })(FilterableArtistList);

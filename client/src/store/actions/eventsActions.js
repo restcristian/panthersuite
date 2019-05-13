@@ -1,4 +1,4 @@
-import { GET_EVENTS, GET_CONCERTS_EVENTS } from './types';
+import { GET_EVENTS, GET_CONCERTS_EVENTS, FILTER_CONCERTS_EVENTS } from './types';
 import httpClient from '../../services/httpClient';
 
 export const getEvents = () => {
@@ -35,7 +35,7 @@ export const getConcertsEvents = () => {
     }
 };
 
-export const getFilteredConcersEvents = (searchText,filters) => {
+export const getFilteredConcertsEvents = (searchText,filters) => {
     return async dispatch => {
         try{
             const params = {
@@ -47,7 +47,10 @@ export const getFilteredConcersEvents = (searchText,filters) => {
             const events = await httpClient.post('/concerts-upcoming-events', params);
             const data = await events.data.concerts_upcoming_events;
 
-            console.log(data);
+            dispatch({
+                type:FILTER_CONCERTS_EVENTS,
+                payload:data
+            });
 
         }
         catch(e){

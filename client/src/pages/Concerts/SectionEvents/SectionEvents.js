@@ -16,7 +16,7 @@ const SectionEvents = props => {
 
 const mapStateToProps = state => {
     return {
-        events: state.events
+        events: state.concertEvents
     };
 };
 export default connect(mapStateToProps)(SectionEvents);

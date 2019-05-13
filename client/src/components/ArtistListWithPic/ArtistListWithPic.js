@@ -9,7 +9,10 @@ const ArtistListWithPic = ({ items }) => {
     const listEl = useRef(null);
 
     useEffect(() => {
-        new Masonry(listEl.current);
+       let msry =  new Masonry(listEl.current);
+        return () => {
+            msry.destroy();
+        }
     }, [items]);
 
     const renderItems = () => {
