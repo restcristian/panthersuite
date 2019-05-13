@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { TweenMax } from 'gsap';
+import { Transition } from 'react-transition-group';
 import ArtistListWithPic from '../ArtistListWithPic/ArtistListWithPic';
-import SlideButton from '../Buttons/SlideButton/SlideButton';
 import SearchButton from '../../components/SearchButton/SearchButton';
 
 import { themeProps } from '../shared/styles';
@@ -12,34 +13,36 @@ import {
     SearchForm
 } from './styles';
 
-const FilterableArtistList = ({events}) => {
+const FilterableArtistList = ({ events }) => {
     const filters = {
-        artist:{
-            text:'Artist',
-            isActive:true,
+        artist: {
+            text: 'Artist',
+            isActive: true,
         },
-        concert:{
-            text:'Concert',
-            isActive:false
+        concert: {
+            text: 'Concert',
+            isActive: false
         },
-        place:{
-            text:'Place',
-            isActive:false
+        place: {
+            text: 'Place',
+            isActive: false
         },
     };
     const [filterTabs, setFilterTabs] = useState(filters);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+    const searchFormRef = useRef(null);
+
     const renderTabItems = () => {
         const keys = Object.keys(filterTabs);
         const listItems = keys.map((key) => {
-            
+
             return (
-                <li 
-                    key = {filterTabs[key].text}
-                    className = {filterTabs[key].isActive ? 'active' : ''}>
-                    <TabButton 
-                        onClick = {()=> onTabClick(key)}>
+                <li
+                    key={filterTabs[key].text}
+                    className={filterTabs[key].isActive ? 'active' : ''}>
+                    <TabButton
+                        onClick={() => onTabClick(key)}>
                         <span>{filterTabs[key].text}</span>
                     </TabButton>
                 </li>
@@ -50,30 +53,43 @@ const FilterableArtistList = ({events}) => {
     }
 
     const onTabClick = key => {
-        
+
         setFilterTabs(prevState => {
             return {
-                    ...prevState, 
-                    [key]:{
-                        ...prevState[key],
-                        isActive:!prevState[key].isActive
-                    }
+                ...prevState,
+                [key]: {
+                    ...prevState[key],
+                    isActive: !prevState[key].isActive
                 }
+            }
         });
     };
 
-    const onSeachClick = () =>  {
-        setIsSearchOpen( prevState => !prevState);
+    const onSeachClick = () => {
+        setIsSearchOpen(prevState => !prevState);
     };
     const renderSearchForm = () => {
-        if(isSearchOpen){
-            return (
-                <SearchForm>
-                    <input type="text" placeholder = "artist, concert, place" />
+
+        return (
+            <Transition
+                timeout = {1000}
+                unmountOnExit
+                mountOnEnter
+                in =  {isSearchOpen}
+                addEndListener = {(node, done)=> {
+                    TweenMax.to(node, 0.5, {
+                        css:{width:isSearchOpen ? "100%" : 0 },
+                        onComplete:done
+                    });
+                }}
+            >
+                <SearchForm ref={searchFormRef}>
+                    <input type="text" placeholder="artist, concert, place" />
                 </SearchForm>
-            );
-        }
-        return null;
+            </Transition>
+
+        );
+
     }
     return (
         <Container>
@@ -84,12 +100,12 @@ const FilterableArtistList = ({events}) => {
                 </ul>
                 <div>
                     <SearchButton
-                     color = {themeProps.colors.black}
-                     onClick = {onSeachClick} />
+                        color={themeProps.colors.black}
+                        onClick={onSeachClick} />
                 </div>
-               {renderSearchForm()}
+                {renderSearchForm()}
             </FilterBox>
-            <ArtistListWithPic items = {events} />
+            <ArtistListWithPic items={events} />
         </Container>
     );
 };

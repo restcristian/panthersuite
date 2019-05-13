@@ -32,10 +32,12 @@ export const SearchForm = styled.form`
     position:absolute;
     top:50%;
     right: 124px;
-    width: calc(100% - 300px);
+    /* width: calc(100% - 300px); */
+    width:0;
     height:40px;
     transform:translateY(-50%);
     background-color:red;
+    max-width:449px;
 
     >input{
         position:absolute;
@@ -101,7 +103,7 @@ export const FilterBox = styled.div`
             }
         }
     }
-    @media(max-width:645px){
+    @media(max-width:767px){
         padding:21px 15px;
         justify-content:space-between;
         
@@ -125,6 +127,7 @@ export const FilterBox = styled.div`
         ${SearchForm}{
             right:58px;
             width:calc(100% - 153px);
+            max-width:369px;
         }
     }
 `;
