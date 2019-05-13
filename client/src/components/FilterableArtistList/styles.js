@@ -126,7 +126,7 @@ export const FilterBox = styled.div`
         }
         ${SearchForm}{
             right:58px;
-            width:calc(100% - 153px);
+            /* width:calc(100% - 153px); */
             max-width:369px;
         }
     }
