@@ -116,7 +116,9 @@ export const ListItemInner = styled.div`
         background-position:center;
         position:relative;
         cursor:pointer; 
-        transform:scale(0);
+        opacity:0;
+        visibility:hidden
+        transform:translateX(-100px);
 
         &:before{
             content:'';

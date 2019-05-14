@@ -26,10 +26,11 @@ const AristItemWithPic = ({ index, item }) => {
                 timeout = {1500}
                 in = {isMounted}
                 addEndListener = {(node, done) => {
-                    TweenMax.to(node, 0.8, {
-                        scaleX:isMounted ? 1 : 0,
-                        scaleY:isMounted ? 1 : 0,
-                        onComplete:done
+                    TweenMax.to(node, 1, {
+                        autoAlpha:isMounted ? 1 : 0,
+                        x:isMounted ? 0 : -100,
+                        onComplete:done,
+                        delay:isMounted ? index * 0.15 : 0
                     });
                 }}>
                 <ListItemInner index={index} style={{ backgroundImage: `url(${image_url})` }}>

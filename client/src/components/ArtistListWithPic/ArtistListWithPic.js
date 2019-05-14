@@ -4,6 +4,7 @@ import {
 } from './styles';
 import ArtistItemWithPic from './ArtistItemWithPic/ArtistItemWithPic';
 import Masonry from 'masonry-layout';
+import uuid from 'uuid';
 
 const ArtistListWithPic = ({ items }) => {
     const listEl = useRef(null);
@@ -19,7 +20,7 @@ const ArtistListWithPic = ({ items }) => {
         return items.map((item, idx) => {
             return (
                 <ArtistItemWithPic
-                    key={item._id}
+                    key={uuid.v4()}
                     index={idx}
                     item={item}
                 />

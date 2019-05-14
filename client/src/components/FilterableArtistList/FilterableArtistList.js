@@ -39,6 +39,7 @@ const FilterableArtistList = ({ events, getFilteredConcertsEvents }) => {
 
     useEffect(()=> {
         // console.log(searchText);
+        
         getFilteredConcertsEvents(searchText, filterTabs);
     },[searchText])
     
@@ -88,7 +89,7 @@ const FilterableArtistList = ({ events, getFilteredConcertsEvents }) => {
         // getFilteredConcertsEvents(searchText, filterTabs);
 
     };
-
+  
     const renderSearchForm = () => {
 
         return (
@@ -134,4 +135,9 @@ const FilterableArtistList = ({ events, getFilteredConcertsEvents }) => {
     );
 };
 
-export default connect(null, { getFilteredConcertsEvents })(FilterableArtistList);
+const areEqual = (prevProps, nextProps) => {
+    console.log(prevProps);
+    return prevProps.events === nextProps.events;
+};
+
+export default connect(null, { getFilteredConcertsEvents })(React.memo(FilterableArtistList, areEqual));
