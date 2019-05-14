@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState,  useEffect } from 'react';
 import { TweenMax } from 'gsap';
 import { Transition } from 'react-transition-group';
 import { connect } from 'react-redux';
@@ -36,8 +36,11 @@ const FilterableArtistList = ({ events, getFilteredConcertsEvents }) => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchText, setSearchText] = useState('');
 
-    const searchFormRef = useRef(null);
 
+    useEffect(()=> {
+        // console.log(searchText);
+        getFilteredConcertsEvents(searchText, filterTabs);
+    },[searchText])
     
 
     const renderTabItems = () => {
@@ -82,7 +85,7 @@ const FilterableArtistList = ({ events, getFilteredConcertsEvents }) => {
 
     const onSearchSubmit = e => {
         e.preventDefault();
-        getFilteredConcertsEvents(searchText, filterTabs);
+        // getFilteredConcertsEvents(searchText, filterTabs);
 
     };
 
@@ -99,9 +102,8 @@ const FilterableArtistList = ({ events, getFilteredConcertsEvents }) => {
                         css: { width: isSearchOpen ? "100%" : 0 },
                         onComplete: done
                     });
-                }}
-            >
-                <SearchForm ref={searchFormRef} onSubmit={onSearchSubmit}>
+                }}>
+                <SearchForm onSubmit={onSearchSubmit}>
                     <input
                         type="text"
                         placeholder="artist, concert, place"
