@@ -135,9 +135,5 @@ const FilterableArtistList = ({ events, getFilteredConcertsEvents }) => {
     );
 };
 
-const areEqual = (prevProps, nextProps) => {
-    console.log(prevProps);
-    return prevProps.events === nextProps.events;
-};
 
-export default connect(null, { getFilteredConcertsEvents })(React.memo(FilterableArtistList, areEqual));
+export default connect(null, { getFilteredConcertsEvents })(FilterableArtistList);

@@ -36,5 +36,5 @@ const ArtistListWithPic = ({ items }) => {
 
 };
 
-export default ArtistListWithPic;
+export default React.memo(ArtistListWithPic);
 
