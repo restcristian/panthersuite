@@ -5,6 +5,7 @@ import withSiteDataLoad from '../components/hoc/withSiteDataLoad';
 
 import Home from '../pages/Home/Home';
 import Concerts from '../pages/Concerts/Concerts';
+import Contact from '../pages/Contact/Contact';
 
 
 class App extends React.Component {
@@ -18,7 +19,8 @@ class App extends React.Component {
             <Layout>
                 <Switch>
                     <Route path="/" exact component={Home} />
-                    <Route path="/concerts" component={Concerts} />>
+                    <Route path="/concerts" component={Concerts} />
+                    <Route path = "/contact" component = {Contact} />
                 </Switch>
             </Layout>
 

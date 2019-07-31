@@ -22,7 +22,7 @@ const SVGVideoMask = props => {
             case 'text':
                     maskId = "textMask";
                     return(
-                        <ImageContainer maskId = {maskId} className = {maskId}>
+                        <ImageContainer maskId = {maskId} className = {maskId} backgroundColor = {props.backgroundColor}>
                             <TextMask maskId = {maskId} text = {props.children}/>
                         </ImageContainer>
                     )
@@ -32,13 +32,12 @@ const SVGVideoMask = props => {
     }
     return (
         <SVGVideoMaskWrapper aspectRatio = {props.aspectRatio}>
-            <SVGVideoMaskContainer>
+            <SVGVideoMaskContainer backgroundColor = {props.backgroundColor}>
                 <VideoStyled autoPlay loop muted>
                     <source src={props.videoUrl} type="video/mp4" />
                 </VideoStyled>
                 {renderMask()}
-
-            </SVGVideoMaskContainer >
+            </SVGVideoMaskContainer>
         </SVGVideoMaskWrapper>
     );
 };
